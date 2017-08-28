@@ -14,3 +14,13 @@ A virtual machine Deep-learning-ready for the LSTM workshop
 9. Inside the box, run `./run_jupyter.sh` to start the jupyter notebook server.
 10. Open your browser at [http://localhost:8888](http://localhost:8888) and log in with password `workshop`
 11. When you want to stop the VM, use `Ctrl+c` to stop the server, then `exit` to leave the ssh session, and `vagrant halt` to stop the VM.
+
+## Notes
+
+### RAM
+
+The VM has 2 GiB of RAM by default. If you want to increase performance, you may increase the `v.memory` in [Vagrantfile] to about half of what you have on your system. DO NOT SET THIS HIGHER THAN 75% OF YOUR SYSTEM'S RAM.
+
+### CPUs
+
+The VM has 2 cores by default. If you want to increase performance, you may increase the `v.cpus` in [Vagrantfile] to half of the number of logical cores on your system. DO NOT SET THIS HIGHER THAN HALF THE NUMBER OF LOGICAL CORES ON YOUR SYSTEM.

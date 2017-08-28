@@ -35,8 +35,10 @@ Vagrant.configure("2") do |config|
 	chown ubuntu:ubuntu /home/ubuntu/.jupyter/ 
 	printf "c.NotebookApp.password = u'sha1:83aab2852741:71a56c4865ed39886d3742c4aac07fdd64489627'" > /home/ubuntu/.jupyter/jupyter_notebook_config.py
 	chown ubuntu:ubuntu /home/ubuntu/.jupyter/jupyter_notebook_config.py
+	# clone the workshop repo
+	git clone https://github.com/mbertani/lstm-workshop-notebook.git
 	# make startup script
-	echo jupyter notebook --ip 0.0.0.0 > /home/ubuntu/run_jupyter.sh
+	echo jupyter notebook --ip 0.0.0.0 --notebook-dir=/home/ubuntu/lstm-workshop-notebook/ > /home/ubuntu/run_jupyter.sh
 	chmod +x /home/ubuntu/run_jupyter.sh
 	chown ubuntu:ubuntu /home/ubuntu/run_jupyter.sh
 	# log on to the box and run
