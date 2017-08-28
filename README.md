@@ -8,7 +8,7 @@ A virtual machine Deep-learning-ready for the LSTM workshop
 3. If you have Git, clone this repository. Otherwise download the content as a ZIP archive and unpack it somewhere.
 4. Open a command line interface/shell (PowerShell or Cmd on Windows, Terminal on Mac, your favourite terminal emulator on Linux)
 5. Change directory to the location of this repository's files.
-6. Run: `vagrant up --provision`
+6. Run: `vagrant up --provision` the first time you start up the VM. Use just `vagrant up` for subsequent calls.
 7. Get some coffee, eat a sandwich or surf the web or something, this will take about 10 minutes depending on your internet connection and computer.
 8. Run `vagrant ssh` to log onto the VM from the shell. 
 9. Inside the box, run `./run_jupyter.sh` to start the jupyter notebook server.
