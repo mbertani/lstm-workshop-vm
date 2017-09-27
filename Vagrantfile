@@ -36,18 +36,22 @@ Vagrant.configure("2") do |config|
 	chown ubuntu:ubuntu /home/ubuntu/.jupyter/ 
 	printf "c.NotebookApp.password = u'sha1:83aab2852741:71a56c4865ed39886d3742c4aac07fdd64489627'" > /home/ubuntu/.jupyter/jupyter_notebook_config.py
 	chown ubuntu:ubuntu /home/ubuntu/.jupyter/jupyter_notebook_config.py
-	# clone the workshop repo
-	git clone https://github.com/mbertani/lstm-workshop-notebook.git
-	chown ubuntu:ubuntu /home/ubuntu/lstm-workshop-notebook
 	# make startup script
 	echo jupyter notebook --ip 0.0.0.0 --notebook-dir=/home/ubuntu/lstm-workshop-notebook/ > /home/ubuntu/run_jupyter.sh
 	chmod +x /home/ubuntu/run_jupyter.sh
 	chown ubuntu:ubuntu /home/ubuntu/run_jupyter.sh
 	# log on to the box and run
-   # $ ./run_jupyter.sh	
+	# $ ./run_jupyter.sh	
 	# Go to you http://localhost:8888 and log on with the password "workshop"
-	# Example from https://github.com/minimaxir/reactionrnn/blob/master/README.md
+
+	# The following are the particular dependencies for the workshop
+	# clone the workshop repo
+	git clone https://github.com/mbertani/lstm-workshop-notebook.git
+	chown ubuntu:ubuntu /home/ubuntu/lstm-workshop-notebook
+	# Dependencies for example from https://github.com/minimaxir/reactionrnn/blob/master/README.md
 	/usr/share/anaconda/bin/pip install reactionrnn
+	#https://github.com/minimaxir/textgenrnn
+	/usr/share/anaconda/bin/pip install textgenrnn
    SHELL
   
 end
