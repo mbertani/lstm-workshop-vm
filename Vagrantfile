@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
 	printf "c.NotebookApp.password = u'sha1:83aab2852741:71a56c4865ed39886d3742c4aac07fdd64489627'" > /home/ubuntu/.jupyter/jupyter_notebook_config.py
 	chown ubuntu:ubuntu /home/ubuntu/.jupyter/jupyter_notebook_config.py
 	# make startup script
-	echo jupyter notebook --ip 0.0.0.0 --notebook-dir=/home/ubuntu/lstm-workshop-notebook/ > /home/ubuntu/run_jupyter.sh
+	echo jupyter notebook --ip 0.0.0.0 --notebook-dir=/home/ubuntu/ > /home/ubuntu/run_jupyter.sh
 	chmod +x /home/ubuntu/run_jupyter.sh
 	chown ubuntu:ubuntu /home/ubuntu/run_jupyter.sh
 	# log on to the box and run
@@ -52,6 +52,9 @@ Vagrant.configure("2") do |config|
 	/usr/share/anaconda/bin/pip install reactionrnn
 	#https://github.com/minimaxir/textgenrnn
 	/usr/share/anaconda/bin/pip install textgenrnn
+	# clone the O'Reilly repo
+	git clone https://github.com/jakevdp/PythonDataScienceHandbook.git
+	chown ubuntu:ubuntu /home/ubuntu/PythonDataScienceHandbook
    SHELL
   
 end
