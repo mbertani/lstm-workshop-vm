@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
     config.vbguest.auto_update = false
   end
   config.vm.provider "virtualbox" do |vb|
-   vb.memory = "2048"
+   vb.memory = "4096"
    vb.cpus = 2
   end
 
@@ -17,11 +17,11 @@ Vagrant.configure("2") do |config|
 	apt-get -y upgrade
     apt-get install -y git
 	# Download anaconda script
-	wget -nv https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh
-	chmod +x Anaconda3-4.4.0-Linux-x86_64.sh
-	./Anaconda3-4.4.0-Linux-x86_64.sh -b -p /usr/share/anaconda
+	wget -nv https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+	chmod +x Anaconda3-5.0.1-Linux-x86_64.sh
+	./Anaconda3-5.0.1-Linux-x86_64.sh -b -p /usr/share/anaconda
 	chown ubuntu:ubuntu /usr/share/anaconda
-	rm Anaconda3-4.4.0-Linux-x86_64.sh
+	rm Anaconda3-5.0.1-Linux-x86_64.sh
 	# Make conda available in the path
 	echo export "PATH=/usr/share/anaconda/bin:\$PATH" >> /home/ubuntu/.bashrc
 	# update anaconda and install deep learning libraries
@@ -52,9 +52,6 @@ Vagrant.configure("2") do |config|
 	/usr/share/anaconda/bin/pip install reactionrnn
 	#https://github.com/minimaxir/textgenrnn
 	/usr/share/anaconda/bin/pip install textgenrnn
-	# clone the O'Reilly repo
-	git clone https://github.com/jakevdp/PythonDataScienceHandbook.git
-	chown ubuntu:ubuntu /home/ubuntu/PythonDataScienceHandbook
    SHELL
   
 end
