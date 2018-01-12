@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provider "virtualbox" do |vb|
    vb.memory = "4096"
-   vb.cpus = 2
+   vb.cpus = 4
   end
 
   config.vm.hostname = "lstm-workshop"
@@ -17,11 +17,11 @@ Vagrant.configure("2") do |config|
 	apt-get -y upgrade
     apt-get install -y git
 	# Download anaconda script
-	wget -nv https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
-	chmod +x Anaconda3-5.0.1-Linux-x86_64.sh
-	./Anaconda3-5.0.1-Linux-x86_64.sh -b -p /usr/share/anaconda
+	wget -O anaconda.sh -nv https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+	chmod +x anaconda.sh
+	./anaconda.sh -b -p /usr/share/anaconda
 	chown ubuntu:ubuntu /usr/share/anaconda
-	rm Anaconda3-5.0.1-Linux-x86_64.sh
+	rm anaconda.sh
 	# Make conda available in the path
 	echo export "PATH=/usr/share/anaconda/bin:\$PATH" >> /home/ubuntu/.bashrc
 	# update anaconda and install deep learning libraries
@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
 	# The following are the particular dependencies for the workshop
 	# clone the workshop repo
 	git clone https://github.com/mbertani/lstm-workshop-notebook.git
-	chown ubuntu:ubuntu /home/ubuntu/lstm-workshop-notebook
+	chown -R ubuntu:ubuntu /home/ubuntu/lstm-workshop-notebook
 	# Dependencies for example from https://github.com/minimaxir/reactionrnn/blob/master/README.md
 	/usr/share/anaconda/bin/pip install reactionrnn
 	#https://github.com/minimaxir/textgenrnn
